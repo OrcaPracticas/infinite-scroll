@@ -27,7 +27,7 @@ const COMMON_CONFIG = {
             {
                 // Rules for JS
                 exclude: /(node_modules)/,
-                test: /js/,
+                test: /\.js$/,
                 use: {
                     loader: "babel-loader",
                     options: {
