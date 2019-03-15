@@ -1,13 +1,13 @@
 {
     "contributors": [
-      {
-        "name": "Luisa Lein",
-        "url": "https://github.com/luisalein9"
-      },
-      {
-        "name": "Jmendez",
-        "url": "https://github.com/konami12"
-      }
+        {
+            "name": "Luisa Lein",
+            "url": "https://github.com/luisalein9"
+        },
+        {
+            "name": "Jmendez",
+            "url": "https://github.com/konami12"
+        }
     ],
     "dependencies": {
         "babel-minify-webpack-plugin": "0.3.1",
@@ -15,10 +15,10 @@
         "babel-polyfill": "^6.26.0",
         "babel-register": "6.26.0",
         "babel-runtime": "6.26.0",
+        "idempotent-babel-polyfill": "^7.0.0",
         "prop-types": "15.6.1",
         "react": "16.8.0",
         "react-dom": "16.8.0",
-        "requirejs": "^2.3.6",
         "uglifyjs-webpack-plugin": "1.3.0",
         "webpack": "4.10.2"
     },
@@ -30,7 +30,7 @@
         "babel-jest": "23.6.0",
         "babel-loader": "7.1.5",
         "babel-preset-env": "1.7.0",
-        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2017": "^6.24.1",
         "babel-preset-flow": "6.23.0",
         "babel-preset-react": "6.24.1",
         "babel-preset-stage-0": "6.24.1",
