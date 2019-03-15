@@ -13,10 +13,10 @@ const Master = (props) => {
     }
 
     return (
-        <div className="row">
+        <React.Fragment>
             <h1 className="title-demo">{title}</h1>
             {RENDER}
-        </div>
+        </React.Fragment>
     );
 };
 

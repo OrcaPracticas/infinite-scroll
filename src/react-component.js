@@ -10,16 +10,19 @@ document.onreadystatechange = () => {
             article_start: 1,
             article_quantity: 5,
             percentage: 0.80,
+            uri: "/",
             nextContent: {
-                "url": "http://local.televisa.com:3000/data.json",
-                "type": "ArticlePage"
-            }
+                url: "http://local.televisa.com:3000/data1.json",
+                type: "ArticlePage",
+            },
         };
         Scroll.setActionScroll(CONFIG);
     }
 };
 
 ReactDOM.hydrate(
-    <Master number={9} title="Articulo 1" />,
+    <div className="row">
+        <Master number={9} title="Articulo Principal" />
+    </div>,
     document.getElementById("app"),
 );

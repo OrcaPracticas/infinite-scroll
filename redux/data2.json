@@ -1,0 +1,7 @@
+{
+    "_type": "ArticlePage",
+    "title": "articulo 2",
+    "number": 9,
+    "uri": "/articulo/2",
+    "nextContent": "http://local.televisa.com:3000/data3.json"
+}
