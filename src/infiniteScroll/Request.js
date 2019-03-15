@@ -10,7 +10,7 @@ class NextContent {
     /**
      * Build URL
      *
-     * @return {Request} self Fluent interface.
+     * @return {NextContent} self Fluent interface.
      */
     get formatUrl() {
         const { url } = this.config;
