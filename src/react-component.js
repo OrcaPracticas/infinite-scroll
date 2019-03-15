@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Master } from "./react";
+import Scroll from "./infiniteScroll";
 
 ReactDOM.hydrate(
-    <Master number={8} />,
+    <Scroll />,
     document.getElementById("app"),
 );

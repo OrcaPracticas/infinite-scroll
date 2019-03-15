@@ -9,7 +9,7 @@ const Card = (props) => {
     } = props;
 
     return (
-        <div className="col s2 m4">
+        <div className="col s12">
             <div className="card">
                 <Thumbnail image={`${image}`} />
                 <Caption description={description} title={title} />
