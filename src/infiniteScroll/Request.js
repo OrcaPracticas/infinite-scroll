@@ -1,13 +1,9 @@
 import "idempotent-babel-polyfill";
+import { request, regexp } from "./config.json";
 
-class Request {
+class NextContent {
     constructor(config) {
-        const INIT_CONFIG = {
-            url: "",
-            type: "ArticlePage",
-            active: false,
-        };
-        this.config = Object.assign(INIT_CONFIG, config);
+        this.config = Object.assign(request, config);
         return this.formatUrl.getNextContent();
     }
 
@@ -19,7 +15,8 @@ class Request {
     get formatUrl() {
         const { url } = this.config;
         if (url) {
-            const URL = url.match(/^(https?:\/\/)([a-z0-9-]){3,5}\.?([a-z0-9-])*\..[a-z0-9]{1,4}:?([0-9]){4,4}?\/?/g);
+            const REG_EXP = new RegExp(regexp, "g");
+            const URL = url.match(REG_EXP);
             const DOMAIN = (URL) ? URL[0] : "";
             if (DOMAIN) {
                 const REDUX = DOMAIN.endsWith("/") ? "redux/" : "/redux/";
@@ -37,23 +34,20 @@ class Request {
      */
     getNextContent = async () => {
         const { url, active, type } = this.config;
-        let request = { success: false };
+        const RESPONSE = { success: false };
         try {
             if (active) {
                 const REQUEST = await fetch(url);
                 const DATA = await REQUEST.json();
                 if (DATA._type === type) {
-                    request = {
-                        success: true,
-                        data: DATA,
-                    };
+                    Object.assign(RESPONSE, { data: DATA, success: true });
                 }
             }
-            return request;
+            return RESPONSE;
         } catch (Error) {
-            return request;
+            return RESPONSE;
         }
     }
 }
 
-export default Request;
+export default NextContent;

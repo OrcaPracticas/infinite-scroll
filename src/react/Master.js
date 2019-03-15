@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Card } from ".";
 
 const Master = (props) => {
-    const { number } = props;
+    const { number, title } = props;
     const RENDER = [];
 
     for (let i = 0; i <= number; i += 1) {
@@ -14,7 +14,7 @@ const Master = (props) => {
 
     return (
         <div className="row">
-            <h1 className="title-demo">Articulos</h1>
+            <h1 className="title-demo">{title}</h1>
             {RENDER}
         </div>
     );
@@ -22,6 +22,7 @@ const Master = (props) => {
 
 Master.propTypes = {
     number: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
 };
 
 export default Master;
