@@ -3,8 +3,6 @@
  *
  * @package Brahma.
  * @subPackage Webapck.
- *
- * @uthor Jmendez <jorge.mendez.ortega@gmail.com>
  */
 const PATH = require("path");
 const BROWSER_SYNC = require("browser-sync-webpack-plugin");
@@ -36,7 +34,7 @@ const COMMON_CONFIG = {
                             "env",
                             "flow",
                             "stage-0",
-                            "es2015",
+                            "es2017",
                         ],
                         plugins: ["inline-json-import"],
                     },

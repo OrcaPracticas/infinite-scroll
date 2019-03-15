@@ -9,7 +9,7 @@ const Master = (props) => {
     for (let i = 0; i <= number; i += 1) {
         const COLOR = Math.floor(Math.random() * 16777215).toString(16);
         const IMG = `http://via.placeholder.com/306x229/${COLOR}/FFFFFF/?text=Card ${i}`;
-        RENDER.push(<Card title={`Card ${i}`} image={IMG} />);
+        RENDER.push(<Card title={`Card ${i}`} image={IMG} key={`card-${i}`} />);
     }
 
     return (

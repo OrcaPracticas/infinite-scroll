@@ -3,8 +3,6 @@
  *
  * @package Brahma.
  * @subPackage Webapck.
- *
- * @uthor Jmendez <jorge.mendez.ortega@gmail.com>
 */
 const MERGE = require("webpack-merge");
 const NOTIFIER = require("webpack-notifier");

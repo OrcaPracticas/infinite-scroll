@@ -28,12 +28,3 @@ lib
 
 #builds & logs
 node_modules
-
-# userinterfaces content
-src/app/userinterfaces/*
-!src/app/userinterfaces/README.md
-
-#eslintFiles
-eslint.test.js
-reports
-eslintResult.json
