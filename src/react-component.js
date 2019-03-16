@@ -9,7 +9,6 @@ document.onreadystatechange = () => {
         const CONFIG = {
             article_start: 1,
             article_quantity: 5,
-            percentage: 0.80,
             uri: "/",
             nextContent: {
                 url: "http://local.televisa.com:3000/data1.json",

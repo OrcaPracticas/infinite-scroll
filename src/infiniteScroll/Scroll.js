@@ -13,6 +13,7 @@ class Scroll {
         const ELEMS = document.querySelectorAll(seletor);
         this.config.requestInProgress = false;
         this.config.uris = [uri];
+        this.config.titles = ["Articulo Principal"];
         this.config.logic = {
             seletor,
             elems: ELEMS,
@@ -40,7 +41,6 @@ class Scroll {
             const APP = document.querySelector("#app");
             const DIV = document.createElement("div");
             DIV.className = "row";
-            DIV.id = `art-${this.config.logic.position}`;
             APP.appendChild(DIV);
             ReactDOM.hydrate(<Master {...data} />, DIV);
             // Modificar y ver la merjor opcion
@@ -51,6 +51,7 @@ class Scroll {
             this.config.nextContent.url = data.nextContent;
             this.config.logic.elems = ELEMS;
             this.config.uris.push(data.uri);
+            this.config.titles.push(data.title);
         }
     }
 
@@ -60,15 +61,15 @@ class Scroll {
             maxval,
             currentVisible,
         } = this.config.logic;
-        const { uris } = this.config;
+        const { uris, titles } = this.config;
         if (elems) {
             [].forEach.call(elems, ($elemento, idx) => {
                 const bottomElement = $elemento.getBoundingClientRect().bottom;
                 const topElement = $elemento.getBoundingClientRect().top;
                 if (maxval < bottomElement && maxval >= topElement && currentVisible !== idx) {
                     this.config.logic.currentVisible = idx;
-                    console.log("El elemento es visible :D", idx);
                     const REFERENCE = `nextContent-${idx}`;
+                    document.title = `.:: ⚙️ ${titles[idx]} ⚙️ ::.`;
                     window.history.pushState({ title: idx }, REFERENCE, uris[idx]);
                 }
             });
