@@ -7,16 +7,17 @@ import { scroll } from "./config.json";
 
 class Scroll {
     static init() {
-        const { startPosition, percentage, uri } = this.config;
-        const seletor = "#app > div";
+        const {
+            startPosition, percentage,
+            uri, container,
+        } = this.config;
         const $SCREEN = window.innerHeight;
-        const ELEMS = document.querySelectorAll(seletor);
+        const $ELEMENTS = document.querySelectorAll(container);
         this.config.requestInProgress = false;
         this.config.uris = [uri];
         this.config.titles = ["Articulo Principal"];
         this.config.logic = {
-            seletor,
-            elems: ELEMS,
+            elements: $ELEMENTS,
             requestInProgress: false,
             currentVisible: 0,
             position: startPosition,
@@ -36,20 +37,21 @@ class Scroll {
 
     static getNextContent(response) {
         const { success, data } = response;
+        const { container, logic, subContainer } = this.config;
         if (success) {
             // Modificar y ver la merjor opcion
-            const APP = document.querySelector("#app");
-            const DIV = document.createElement("div");
-            DIV.className = "row";
-            APP.appendChild(DIV);
-            ReactDOM.hydrate(<Master {...data} />, DIV);
+            const $APP = document.querySelector(container);
+            const $TAG = document.createElement(subContainer);
+            $TAG.className = "row";
+            $TAG.id = `Infinite-Scroll-Item-${logic.position}`;
+            $APP.appendChild($TAG);
+            ReactDOM.hydrate(<Master {...data} />, $TAG);
             // Modificar y ver la merjor opcion
-            const seletor = "#app > div";
-            const ELEMS = document.querySelectorAll(seletor);
+            const $ELEMENTS = document.querySelectorAll(`${container} > [id^=Infinite-Scroll-Item-]`);
             this.config.logic.requestInProgress = false;
             this.config.logic.position += 1;
             this.config.nextContent.url = data.nextContent;
-            this.config.logic.elems = ELEMS;
+            this.config.logic.elements = $ELEMENTS;
             this.config.uris.push(data.uri);
             this.config.titles.push(data.title);
         }
