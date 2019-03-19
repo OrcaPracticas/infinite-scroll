@@ -8,13 +8,13 @@ class Scroll {
     static init() {
         const {
             startPosition, percentage,
-            uri, container,
+            uri, container, nextContent,
         } = this.config;
         const $SCREEN = window.innerHeight;
         const $ELEMENTS = document.querySelectorAll(container);
         this.config.requestInProgress = false;
         this.config.uris = [uri];
-        this.config.titles = ["Articulo Principal"];
+        this.config.titles = [nextContent.title];
         this.config.logic = {
             elements: $ELEMENTS,
             requestInProgress: false,

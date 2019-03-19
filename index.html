@@ -26,39 +26,39 @@
     			 })();
     </script>
     <script type="text/javascript">
-    const banners = (
-    		(tag) => {
-    			const PUBLIC = {};
-    			__createBanner = (id) => {
-    				tag.cmd.push(function() {
-    					tag.display(id);
-    				});
-    			}
-    			PUBLIC.newBanner = (id) => {
-    				tag.cmd.push(() => {
-    					const MAPPING = tag.sizeMapping()
-    						.addSize([930, 140], [320, 40]) //Desktop and landscape.
-        					.addSize([607, 140], [728,90]) // /Ipad.
-        					.addSize([200, 140], [320, 50]) // Iphones.
-        					.build();
+        const banners = (
+        		(tag) => {
+        			const PUBLIC = {};
+        			__createBanner = (id) => {
+        				tag.cmd.push(function() {
+        					tag.display(id);
+        				});
+        			}
+        			PUBLIC.newBanner = (id) => {
+        				tag.cmd.push(() => {
+        					const MAPPING = tag.sizeMapping()
+        						.addSize([930, 140], [320, 40]) //Desktop and landscape.
+            					.addSize([607, 140], [728,90]) // /Ipad.
+            					.addSize([200, 140], [320, 50]) // Iphones.
+            					.build();
 
-        				const AD_UNIT = "/5644/televisacom.test";
-        				tag.defineSlot(AD_UNIT, [930, 140], id)
-          					.defineSizeMapping(MAPPING)
-        					.addService(tag.companionAds())
-        					.addService(tag.pubads())
-        					.setCollapseEmptyDiv(true);
-    			
-    			    	tag.companionAds().setRefreshUnfilledSlots(true);
-                		tag.pubads().enableVideoAds();
-                		tag.pubads().enableSingleRequest();
-                		tag.enableServices();
-    				});
-                    __createBanner(id);
-    			};
-    			return PUBLIC;
-    		}
-    	)(googletag);
+            				const AD_UNIT = "/5644/televisacom.test";
+            				tag.defineSlot(AD_UNIT, [930, 140], id)
+              					.defineSizeMapping(MAPPING)
+            					.addService(tag.companionAds())
+            					.addService(tag.pubads())
+            					.setCollapseEmptyDiv(true);
+        			
+        			    	tag.companionAds().setRefreshUnfilledSlots(true);
+                    		tag.pubads().enableVideoAds();
+                    		tag.pubads().enableSingleRequest();
+                    		tag.enableServices();
+        				});
+                        __createBanner(id);
+        			};
+        			return PUBLIC;
+        		}
+        	)(googletag);
     </script>
     <title>.:: ⚙️ Articulo Principal ⚙️ ::.</title>
 </head>
