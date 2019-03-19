@@ -8,6 +8,58 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./src/css/style.css"/>
+    <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/gpt_proxy.js"></script>
+    <script type="text/javascript">
+    		var idDFPObject='';
+    		var idDFP ='';
+    		var googletag = googletag || {};
+    			googletag.cmd = googletag.cmd || [];
+    		(function() {
+    				var gads = document.createElement('script');
+    				gads.async = true;
+    				gads.type = 'text/javascript';
+    			   var useSSL = 'https:' == document.location.protocol;
+    			   gads.src = (useSSL ? 'https:' : 'http:') +
+    			   '//www.googletagservices.com/tag/js/gpt.js';
+    			   var node = document.getElementsByTagName('script')[0];
+    			   node.parentNode.insertBefore(gads, node);
+    			 })();
+    </script>
+    <script type="text/javascript">
+    const banners = (
+    		(tag) => {
+    			const PUBLIC = {};
+    			__createBanner = (id) => {
+    				tag.cmd.push(function() {
+    					tag.display(id);
+    				});
+    			}
+    			PUBLIC.newBanner = (id) => {
+    				tag.cmd.push(() => {
+    					const MAPPING = tag.sizeMapping()
+    						.addSize([930, 140], [320, 40]) //Desktop and landscape.
+        					.addSize([607, 140], [728,90]) // /Ipad.
+        					.addSize([200, 140], [320, 50]) // Iphones.
+        					.build();
+
+        				const AD_UNIT = "/5644/televisacom.test";
+        				tag.defineSlot(AD_UNIT, [930, 140], id)
+          					.defineSizeMapping(MAPPING)
+        					.addService(tag.companionAds())
+        					.addService(tag.pubads())
+        					.setCollapseEmptyDiv(true);
+    			
+    			    	tag.companionAds().setRefreshUnfilledSlots(true);
+                		tag.pubads().enableVideoAds();
+                		tag.pubads().enableSingleRequest();
+                		tag.enableServices();
+    				});
+                    __createBanner(id);
+    			};
+    			return PUBLIC;
+    		}
+    	)(googletag);
+    </script>
     <title>.:: ⚙️ Articulo Principal ⚙️ ::.</title>
 </head>
 <body class="grey darken-4">

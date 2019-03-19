@@ -10,6 +10,7 @@ document.onreadystatechange = () => {
             article_start: 1,
             article_quantity: 5,
             uri: "/",
+            component: Master,
             container: "#Article-container",
             subContainer: "div",
             nextContent: {
@@ -23,7 +24,7 @@ document.onreadystatechange = () => {
 
 ReactDOM.hydrate(
     <div className="row" id="Infinite-Scroll-Item-0">
-        <Master number={9} title="Articulo Principal" />
+        <Master number={9} title="Articulo Principal" idBanner="ban01_728x90" />
     </div>,
     document.getElementById("Article-container"),
 );

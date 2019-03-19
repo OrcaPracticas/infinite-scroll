@@ -3,5 +3,6 @@
     "title": "articulo 1",
     "number": 11,
     "uri": "/articulo/1",
-    "nextContent": "http://local.televisa.com:3000/data2.json"
+    "nextContent": "http://local.televisa.com:3000/data2.json",
+    "idBanner": "baner-1"
 }

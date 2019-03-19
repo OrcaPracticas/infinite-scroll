@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Master } from "../react";
 import { Request } from ".";
 import { scroll } from "./config.json";
 
@@ -37,7 +36,10 @@ class Scroll {
 
     static getNextContent(response) {
         const { success, data } = response;
-        const { container, logic, subContainer } = this.config;
+        const {
+            container, logic,
+            subContainer, component: Component,
+        } = this.config;
         if (success) {
             // Modificar y ver la merjor opcion
             const $APP = document.querySelector(container);
@@ -45,7 +47,7 @@ class Scroll {
             $TAG.className = "row";
             $TAG.id = `Infinite-Scroll-Item-${logic.position}`;
             $APP.appendChild($TAG);
-            ReactDOM.hydrate(<Master {...data} />, $TAG);
+            ReactDOM.hydrate(<Component {...data} />, $TAG);
             // Modificar y ver la merjor opcion
             const $ELEMENTS = document.querySelectorAll(`${container} > [id^=Infinite-Scroll-Item-]`);
             this.config.logic.requestInProgress = false;
