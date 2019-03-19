@@ -44,7 +44,7 @@ const COMMON_CONFIG = {
     },
     plugins: [
         new BROWSER_SYNC({
-            host: "localhost",
+            host: "local.televisa.com",
             port: 3000,
             server: {
                 baseDir: [

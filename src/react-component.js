@@ -14,7 +14,7 @@ document.onreadystatechange = () => {
             container: "#Article-container",
             subContainer: "div",
             nextContent: {
-                titulo: "Articulo Principal",
+                title: "Articulo Principal",
                 url: "http://local.televisa.com:3000/data1.json",
                 type: "ArticlePage",
             },

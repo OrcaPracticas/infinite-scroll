@@ -5,7 +5,7 @@ import { Request } from ".";
 import { scroll } from "./config.json";
 
 class Scroll {
-    static init() {
+    static get init() {
         const {
             startPosition, percentage,
             uri, container, nextContent,
@@ -22,6 +22,7 @@ class Scroll {
             position: startPosition,
             maxval: (percentage * $SCREEN),
         };
+        return this.config;
     }
 
     static get estimate() {
@@ -61,16 +62,17 @@ class Scroll {
 
     static currentElement() {
         const {
-            elems,
+            elements,
             maxval,
             currentVisible,
         } = this.config.logic;
         const { uris, titles } = this.config;
-        if (elems) {
-            [].forEach.call(elems, ($elemento, idx) => {
-                const bottomElement = $elemento.getBoundingClientRect().bottom;
-                const topElement = $elemento.getBoundingClientRect().top;
-                if (maxval < bottomElement && maxval >= topElement && currentVisible !== idx) {
+        if (elements) {
+            const $ELEMENTS = [...elements];
+            $ELEMENTS.forEach(($element, idx) => {
+                const BOTTOM_ELEMENT = $element.getBoundingClientRect().bottom;
+                const TOP_ELEMENT = $element.getBoundingClientRect().top;
+                if (maxval < BOTTOM_ELEMENT && maxval >= TOP_ELEMENT && currentVisible !== idx) {
                     this.config.logic.currentVisible = idx;
                     const REFERENCE = `nextContent-${idx}`;
                     document.title = `.:: ⚙️ ${titles[idx]} ⚙️ ::.`;
@@ -82,17 +84,22 @@ class Scroll {
 
     static setActionScroll(config) {
         this.config = Object.assign(scroll, config);
-        this.init();
-        document.addEventListener("scroll", () => {
-            const { quantity, logic, nextContent } = this.config;
-            const { requestInProgress, position } = logic;
-            this.currentElement();
-            if (this.estimate && !requestInProgress && position < quantity) {
-                this.config.logic.requestInProgress = true;
-                const NEXT_CONTENT = new Request(nextContent);
-                NEXT_CONTENT.then(data => this.getNextContent(data));
-            }
-        });
+
+        const { container, component } = this.init;
+        if (container && component) {
+            document.addEventListener("scroll", () => {
+                const { quantity, logic, nextContent } = this.config;
+                const { requestInProgress, position } = logic;
+                this.currentElement();
+                if (this.estimate && !requestInProgress && position < quantity) {
+                    this.config.logic.requestInProgress = true;
+                    const NEXT_CONTENT = new Request(nextContent);
+                    NEXT_CONTENT.then(data => this.getNextContent(data));
+                }
+            });
+        } else {
+            console.error("Error. . .");
+        }
     }
 }
 

@@ -1,17 +1,21 @@
 {
+    "component": null,
+    "container": "",
+    "regexp": "^(https?://)([a-z]*\\.)?([a-z0-9]*\\.)([a-z0-9]){2,5}(:?[0-9]{2,4})?/?",
     "request": {
-        "url": "",
+        "active": false,
         "type": "ArticlePage",
-        "active": false
+        "url": ""
     },
-    "regexp": "^(https?:\/\/)([a-z]*\\.)?([a-z0-9]*\\.)([a-z0-9]){2,5}(:?[0-9]{2,4})?\/?",
     "scroll": {
-        "startPosition": 1,
-        "quantity": 5,
+        "nextContent": {
+            "title": "Artículo",
+            "type": "ArticlePage",
+            "url": "http://local.televisa.com:3000/data.json"
+        },
         "percentage": 0.75,
-        "nextContent" : {
-            "url": "http://local.televisa.com:3000/data.json",
-            "type": "ArticlePage"
-        }
-    }
+        "quantity": 5,
+        "startPosition": 1
+    },
+    "subContainer": "div"
 }
